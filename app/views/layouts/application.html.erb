@@ -10,7 +10,10 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="object-contain" style="background-image: url(<%= image_path "background" %>); background-size:"300px 300px"" >
+  <body 
+    class="object-contain overflow-hidden"
+    style="background-image: url(<%= image_path "background" %>); background-size:"300px 300px""
+  >
     <%= react_component("NavBar") %>
     <%= yield %>
   </body>

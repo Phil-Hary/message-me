@@ -2,3 +2,7 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+.rotateY-180 {
+  transform: rotateY(180deg);
+}
