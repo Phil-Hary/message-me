@@ -248,6 +248,7 @@ module.exports = {
       ],
       serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
       mono: ['Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
+      chat: ['"Courier New"', 'Courier', 'monospace'],
     },
     fontSize: {
       xs: '0.75rem',
@@ -275,6 +276,7 @@ module.exports = {
     height: theme => ({
       auto: 'auto',
       ...theme('spacing'),
+      '500': '500px',
       full: '100%',
       screen: '100vh',
     }),
@@ -425,6 +427,7 @@ module.exports = {
       '9/12': '75%',
       '10/12': '83.333333%',
       '11/12': '91.666667%',
+      '250': '250px',
       '400': '400px',
       '480': '480px',
       full: '100%',
