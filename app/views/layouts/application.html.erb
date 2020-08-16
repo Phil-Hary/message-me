@@ -11,10 +11,15 @@
   </head>
 
   <body 
-    class="object-contain overflow-hidden"
-    style="background-image: url(<%= image_path "background" %>); background-size:"300px 300px""
+    class="object-contain overflow-hidden bg-right"
+    style="background-image: url(<%= image_path "background" %>);"
   >
     <%= react_component("NavBar") %>
+    <% flash.each do |type, msg| %>
+      <div class="w-full bg-blue-400 text-black flex justify-center italic font-medium">
+        <%= msg %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

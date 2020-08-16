@@ -6,6 +6,30 @@ const Login = () => {
   const [ email, setEmail ] = React.useState('');
   const [ password, setPassword ] = React.useState('');
 
+  const handleSubmit = async () => {
+    const csrfToken = document.getElementsByName("csrf-token")[0].content;
+    const body = { 
+      authenticity_token: csrfToken,
+      email: email,
+      password: password
+    };
+
+    const res = await fetch(
+      '/login',
+      {
+        method: "POST",
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body)
+      }
+    );
+
+    const data = await res.json();
+    window.location.href = data.redirect;
+  };
+
   return(
     <div class="flex justify-center items-center h-screen w-full"> 
       <div class="flex flex-col py-4 w-480 bg-black bg-opacity-25 items-center">
@@ -36,7 +60,10 @@ const Login = () => {
           />
         </div>
         <div class="mb-4 mx-auto mt-6">
-          <button class="bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded">
+          <button
+            class="bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded"
+            onClick={handleSubmit}
+          >
             Launch MessageMe
           </button>
         </div>

@@ -2,15 +2,40 @@ import * as React from 'react';
 import ChatArea from './ChatArea';
 import UsersOnline from './UsersOnline';
 
-const Layout = () => {
+const Layout = (props) => {
+	const [ chatDetails, setChatDetails ] = React.useState({
+		messages:[],
+		users:[]
+	});
+
+	const { messages, users } = chatDetails;
+
+	React.useEffect(() => {
+		const getChatData = async() => {
+			const res = await fetch(
+				"/",
+				{
+					method: "GET",
+	        headers: {
+	          Accept: 'application/json',
+	          'Content-Type': 'application/json',
+	        },
+				}
+			);
+			const resData = await res.json();
+			setChatDetails(resData);
+		};
+		getChatData();
+	},[]);
+
 	return(
 		<div class="w-full h-full flex flex-col justify-content item-center">
 			<div class="text-blue-400 mx-auto">
 				MessageMe
 			</div>
 			<div class="w-100 h-full text-white mx-64 px-32 py-16 flex">
-				<ChatArea />
-				<UsersOnline />
+				<ChatArea messages={messages}/>
+				<UsersOnline users={users}/>
 			</div>
 		</div>
 	);
