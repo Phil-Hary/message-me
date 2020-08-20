@@ -1,6 +1,8 @@
 import * as React from 'react';
+import { ActionCableConsumer } from 'react-actioncable-provider';
 
 const ChatArea = ({messages}) => {
+	console.log(messages);
 	const [ message, setMessage ] = React.useState("");
 
 	const sendMessage = async () => {
@@ -16,8 +18,8 @@ const ChatArea = ({messages}) => {
 				headers: {
          	Accept: 'application/json',
           'Content-Type': 'application/json',
-       	},
-       	body: JSON.stringify(body)
+     	},
+     	body: JSON.stringify(body)
 			}
 		);
 	};
