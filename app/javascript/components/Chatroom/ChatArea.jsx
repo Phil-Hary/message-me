@@ -1,9 +1,16 @@
 import * as React from 'react';
+import Scrollbar from "react-scrollbars-custom"
 import { ActionCableConsumer } from 'react-actioncable-provider';
 
 const ChatArea = ({messages}) => {
-	console.log(messages);
 	const [ message, setMessage ] = React.useState("");
+	const scrollBarRef = React.useRef(null);
+	const inputRef = React.useRef(null);
+
+	React.useEffect(() => {
+		scrollBarRef.current.scrollToBottom();
+		inputRef.current.focus();
+	},[])
 
 	const sendMessage = async () => {
 		const csrfToken = document.getElementsByName("csrf-token")[0].content;
@@ -33,6 +40,14 @@ const ChatArea = ({messages}) => {
 		<div
 			class="h-500 w-3/4 bg-black font-chat p-5 flex flex-col"
 		>
+			<Scrollbar ref={scrollBarRef}
+				trackYProps={{
+				    renderer: props => {
+				      const { elementRef, ...restProps } = props;
+				      return <span {...restProps} ref={elementRef} className="trackY" />;
+				    }
+				  }}
+					style={{ width: "100%", height: "100%" }}>
 			{
 				messages.map((message, key) => {
 					return(
@@ -44,9 +59,11 @@ const ChatArea = ({messages}) => {
 					)
 				})
 			}
+			</Scrollbar>
 			<div class="mt-auto">
 				<span class="text-blue-400" placeholder="Type your message here">Message:</span>{" "}
-				<input 
+				<input
+					ref={inputRef}
 					type="text"
 					class="bg-black border-0 focus:outline-none w-3/4"
 					onKeyDown={handleKeyDown}

@@ -7,7 +7,7 @@ consumer.subscriptions.create("ChatroomChannel", {
 
   disconnected() {
     // Called when the subscription has been terminated by the server
-    console.log("disconnected");
+    console.log("Disconnected");
   },
 
   received(data) {

@@ -10,6 +10,16 @@ const Layout = (props) => {
 		users:[]
 	});
 
+	let ws = new WebSocket("ws://localhost:3000/cable");
+
+	ws.onopen = () => {
+		console.log("opened");
+	}
+
+	ws.onclose =() => {
+		console.log("closed");
+	}
+
 	const { messages, users } = chatDetails;
 
 	React.useEffect(() => {
@@ -37,6 +47,9 @@ const Layout = (props) => {
 				onReceived={(res) => {
 					console.log("Hellllllllllllooooooo");
 					setChatDetails(res);
+				}}
+				onDisconnected={() => {
+					console.log("Disconected boss")
 				}}>
 				<div class="w-full h-full flex flex-col justify-content item-center">
 					<div class="text-blue-400 mx-auto">
