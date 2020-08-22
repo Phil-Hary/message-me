@@ -2,7 +2,7 @@ import React from 'react';
 
 const NavBar = () => {
   return(
-    <div class="w-full h-12 bg-gray-800 sticky top-0">
+    <div class="w-full h-16 bg-black sticky top-0">
       Hi
     </div>
   );
