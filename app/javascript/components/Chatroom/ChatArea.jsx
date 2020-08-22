@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Scrollbar from "react-scrollbars-custom"
+import Scrollbar from "react-scrollbars-custom";
 import { ActionCableConsumer } from 'react-actioncable-provider';
 
 const ChatArea = ({messages}) => {
@@ -42,16 +42,17 @@ const ChatArea = ({messages}) => {
 		>
 			<Scrollbar ref={scrollBarRef}
 				trackYProps={{
-				    renderer: props => {
-				      const { elementRef, ...restProps } = props;
-				      return <span {...restProps} ref={elementRef} className="trackY" />;
-				    }
-				  }}
-					style={{ width: "100%", height: "100%" }}>
+			    renderer: props => {
+			      const { elementRef, ...restProps } = props;
+			      return <span {...restProps} ref={elementRef} className="trackY" />;
+			    }
+			  }}
+				style={{ width: "100%", height: "100%" }}
+			>
 			{
 				messages.map((message, key) => {
 					return(
-						<div>
+						<div style={{overflowWrap: "break-word"}}>
 							<span class="text-blue-400">{message.user.user_name}:</span>{" "}
 							<span>{message.message}</span>
 						</div>
@@ -68,7 +69,8 @@ const ChatArea = ({messages}) => {
 					class="bg-black border-0 focus:outline-none w-3/4"
 					onKeyDown={handleKeyDown}
 					value={message}
-					onChange={(e) => setMessage(e.target.value)}/>
+					onChange={(e) => setMessage(e.target.value)}
+					style={{overflowWrap: "break-word"}}/>
 			</div>
 		</div>
 	);

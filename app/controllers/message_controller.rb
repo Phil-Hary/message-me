@@ -13,7 +13,8 @@ class MessageController < ApplicationController
 		@users = User.all
 		ActionCable.server.broadcast 'chatroom_channel', {
 			messages: @messages,
-			users: @users
+			users: @users,
+			messageFrom: current_user.user_name
 		}
 	end
 end

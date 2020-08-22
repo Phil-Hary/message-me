@@ -7,7 +7,8 @@ import { ActionCableProvider, ActionCableConsumer } from 'react-actioncable-prov
 const Layout = (props) => {
 	const [ chatDetails, setChatDetails ] = React.useState({
 		messages:[],
-		users:[]
+		users:[],
+		messageFrom:"",
 	});
 
 	let ws = new WebSocket("ws://localhost:3000/cable");
@@ -20,7 +21,7 @@ const Layout = (props) => {
 		console.log("closed");
 	}
 
-	const { messages, users } = chatDetails;
+	const { messages, users, messageFrom } = chatDetails;
 
 	React.useEffect(() => {
 		const getChatData = async() => {
@@ -45,7 +46,6 @@ const Layout = (props) => {
 			<ActionCableConsumer 
 				channel="ChatroomChannel"
 				onReceived={(res) => {
-					console.log("Hellllllllllllooooooo");
 					setChatDetails(res);
 				}}
 				onDisconnected={() => {
@@ -57,7 +57,7 @@ const Layout = (props) => {
 					</div>
 					<div class="w-100 h-full text-white mx-64 px-32 py-16 flex">
 						<ChatArea messages={messages}/>
-						<UsersOnline users={users}/>
+						<UsersOnline users={users} messageFrom={messageFrom} />
 					</div>
 				</div>
 				</ActionCableConsumer>
