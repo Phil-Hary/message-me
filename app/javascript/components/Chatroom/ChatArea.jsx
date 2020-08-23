@@ -70,7 +70,7 @@ const ChatArea = ({messages}) => {
 					onKeyDown={handleKeyDown}
 					value={message}
 					onChange={(e) => setMessage(e.target.value)}
-					style={{overflowWrap: "break-word"}}/>
+					style={{overflowWrap: "break-word"}}	/>
 			</div>
 		</div>
 	);

@@ -26,7 +26,6 @@ class ChatroomController < ApplicationController
 
   def already_logged_in
   	if !current_user
-  		flash[:alert] = "Login before performing this action"
   		redirect_to login_path
   	end
   end

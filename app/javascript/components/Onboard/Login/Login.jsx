@@ -33,8 +33,8 @@ const Login = () => {
   return(
     <div class="flex justify-center items-center h-screen w-full"> 
       <div class="flex flex-col py-4 w-480 bg-black bg-opacity-25 items-center">
-        <h1 class="text-blue-300">MessageMe</h1>
-        <div class="bg-black text-white w-400 h-48 mt-16 mb-8 p-6 bg-opacity-50 rounded">
+        <h1 class="tube-light-effect">MessageMe</h1>
+        <div class="bg-black text-white w-400 h-48 my-8 p-6 bg-opacity-50 rounded">
           Hi Amigo, welcome to MessageMe!!!
         </div>
         <div class="mb-4 mx-5 flex flex-col">
