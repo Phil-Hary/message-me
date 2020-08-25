@@ -1,7 +1,6 @@
 import * as React from 'react';
 import ChatArea from './ChatArea';
 import UsersOnline from './UsersOnline';
-import TitleSvg from '../Common/SVG/TitleSvg';
 import { ActionCableProvider, ActionCableConsumer } from 'react-actioncable-provider';
 
 
@@ -53,9 +52,6 @@ const Layout = (props) => {
 					console.log("Disconected boss")
 				}}>
 				<div class="w-full h-full flex flex-col justify-content item-center">
-					<div class="mx-auto">
-						<TitleSvg />
-					</div>
 					<div class="w-100 h-full text-white mx-64 px-32 py-16 flex">
 						<ChatArea messages={messages}/>
 						<UsersOnline users={users} messageFrom={messageFrom} />
