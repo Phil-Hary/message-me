@@ -38,7 +38,7 @@ const ChatArea = ({messages}) => {
 
 	return(
 		<div
-			class="h-500 w-3/4 bg-black font-chat p-5 flex flex-col"
+			className="h-500 w-3/4 bg-black font-chat p-5 flex flex-col"
 		>
 			<Scrollbar ref={scrollBarRef}
 				trackYProps={{
@@ -52,8 +52,8 @@ const ChatArea = ({messages}) => {
 			{
 				messages.map((message, key) => {
 					return(
-						<div style={{overflowWrap: "break-word"}}>
-							<span class="text-blue-400">{message.user.user_name}:</span>{" "}
+						<div style={{overflowWrap: "break-word"}} key={key}>
+							<span className="text-blue-400">{message.user.user_name}:</span>{" "}
 							<span>{message.message}</span>
 						</div>
 
@@ -61,12 +61,12 @@ const ChatArea = ({messages}) => {
 				})
 			}
 			</Scrollbar>
-			<div class="mt-auto">
-				<span class="text-blue-400" placeholder="Type your message here">Message:</span>{" "}
+			<div className="mt-auto">
+				<span className="text-blue-400" placeholder="Type your message here">Message:</span>{" "}
 				<input
 					ref={inputRef}
 					type="text"
-					class="bg-black border-0 focus:outline-none w-3/4"
+					className="bg-black border-0 focus:outline-none w-3/4"
 					onKeyDown={handleKeyDown}
 					value={message}
 					onChange={(e) => setMessage(e.target.value)}

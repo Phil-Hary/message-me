@@ -51,8 +51,8 @@ const Layout = (props) => {
 				onDisconnected={() => {
 					console.log("Disconected boss")
 				}}>
-				<div class="w-full h-full flex flex-col justify-content item-center">
-					<div class="w-100 h-full text-white mx-64 px-32 py-16 flex">
+				<div className="w-full h-full flex flex-col justify-content item-center">
+					<div className="w-100 h-full text-white mx-64 px-32 py-16 flex">
 						<ChatArea messages={messages}/>
 						<UsersOnline users={users} messageFrom={messageFrom} />
 					</div>

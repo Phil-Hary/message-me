@@ -1,9 +1,10 @@
 import React from 'react';
+import TitleSvg from './Common/SVG/TitleSvg';
 
 const NavBar = () => {
   return(
-    <div class="w-full h-16 bg-black sticky top-0">
-      Hi
+    <div className="flex w-full h-16 bg-black absolute top-0">
+    	
     </div>
   );
 }

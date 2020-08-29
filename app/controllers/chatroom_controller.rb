@@ -15,7 +15,7 @@ class ChatroomController < ApplicationController
   					}
   				),
   				users: User.all.as_json(
-  					only: [:user_name]
+  					only: [:user_name, :online]
   				)
   			}
   		}

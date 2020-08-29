@@ -3,8 +3,8 @@ import TitleSvg from '../Common/SVG/TitleSvg';
 
 const Title = () => {
 	return(
-		<div class="flex w-full mt-10">
-			<div class="mx-auto">
+		<div className="flex w-full mt-32">
+			<div className="mx-auto">
 				<TitleSvg />
 			</div>
 		</div>

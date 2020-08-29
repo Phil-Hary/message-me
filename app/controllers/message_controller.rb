@@ -6,7 +6,7 @@ class MessageController < ApplicationController
 			only: [:message, :created_at],
 			include: {
 				user: {
-					only: [:user_name]
+					only: [:user_name, :online]
 				}
 			}
 		)
