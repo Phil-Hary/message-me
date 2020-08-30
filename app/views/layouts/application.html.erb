@@ -14,7 +14,7 @@
     class="object-contain bg-center"
     style="background-image: url(<%= image_path "background" %>);"
   >
-    <%= react_component("NavBar") %>
+    <%= react_component("NavBar", { user: @current_user }) %>
     <% flash.each do |type, msg| %>
       <div class="w-full absolute bg-blue-400 text-black flex justify-center italic font-medium">
         <%= msg %>

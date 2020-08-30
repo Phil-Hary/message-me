@@ -29,8 +29,8 @@ const SignUp = () => {
       }
     );
 
-    const data = await res.json();
-    window.location.href = data.redirect;
+    const { redirect } = await res.json();
+    window.location.href = redirect;
   }
 
 	return(
@@ -85,7 +85,12 @@ const SignUp = () => {
         <div class="mb-4 mx-auto mt-4">
           <div class="text-white">
             Already have an account?
-            <span class="text-blue-400 ml-2 cursor-pointer"> LogIn </span>
+            <span
+              class="text-blue-400 ml-2 cursor-pointer"
+              onClick={()=>{
+                window.location.href = "/login"
+              }}
+            > LogIn </span>
           </div>
         </div>
       </div>

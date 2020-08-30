@@ -70,7 +70,12 @@ const Login = ({ toggle }) => {
         <div class="mb-4 mx-auto mt-4">
           <div class="text-white">
             Don't have an accont?
-            <span class="text-blue-400 ml-2 cursor-pointer" onClick={toggle}> Sign Up </span>
+            <span
+              class="text-blue-400 ml-2 cursor-pointer"
+              onClick={()=>{
+                window.location.href = "/signUp"
+              }}
+            > Sign Up </span>
           </div>
           <div class="text-blue-400 cursor-pointer">
             Forgot Password ?

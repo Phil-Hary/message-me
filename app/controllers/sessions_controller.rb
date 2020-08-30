@@ -22,8 +22,12 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-  	session[:user] = nil;
-  	redirect_to login_path
+    user = User.find(params[:user_id])
+    user.update_column(:online, :false)
+  	session[:user_id] = nil;
+  	render json: {
+        redirect: login_path
+      }
   end
 
   protected
